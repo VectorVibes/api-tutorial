@@ -1,23 +1,10 @@
-require('dotenv').config(); // Load environment variables
 const mongoose = require("mongoose");
+require('dotenv').config(); // Load environment variables
 
 console.log("LOCAL_DB_URL:", process.env.LOCAL_DB_URL);
 console.log("REMOTE_DB_URL:", process.env.REMOTE_DB_URL);
 
-const LOCAL_DB_URL = process.env.LOCAL_DB_URL;
-const REMOTE_DB_URL = process.env.REMOTE_DB_URL;
-
-const DB_URL = LOCAL_DB_URL || REMOTE_DB_URL;
-
-if (!DB_URL) {
-    console.error("Database URL not defined. Check your .env file.");
-    process.exit(1);
-}
-
-mongoose.connect(DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect("mongodb+srv://priya:V.t97-yhNUbLk!-@cluster0.nvt4yee.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 const db = mongoose.connection;
 
